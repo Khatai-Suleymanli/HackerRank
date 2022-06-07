@@ -2,34 +2,21 @@
 #include <iostream>
 using namespace std;
 
-void update(int* pa, int* pb) {
-    // Complete this function 
-    int x = *pa + *pb; // *a + *b
-
-    // abs() gives the module of the number. 
-    int y = abs(*pa - *pb);  // |*a - *b|
-
-    // x contains their sum
-    *pa = x;
-    //y contains their absolute difference
-    *pb = y;
-
+void update(int *a,int *b) {
+    int sum = *a + *b;
+    int Difference = *a - *b > 0 ? *a - *b : -(*a - *b);
+    *a = sum;
+    *b = Difference; 
 }
 
+
 int main() {
-
-    //variables
-    int a;
-    int b;
-    // a gives refference to *pa
-    int* pa = &a;
-    // b gives refference to *pb
-    int* pb = &b;
-
-    // Inputs
-    cin >> a >> b;
+    int a, b;
+    int *pa = &a, *pb = &b;
+    
+    cin >> a>>b;
     update(pa, pb);
-    cout << a << "\n" << b << "\n";
+    printf("%d\n%d", a, b);
 
     return 0;
 }
